@@ -1,0 +1,151 @@
+// colors
+$color_primary_darkCyan: hsl(158, 36%, 37%);
+$color_primary_veryDarkCyan: hsl(158, 36%, 27%);
+$color_primary_cream: hsl(30, 38%, 92%);
+$color_neutral_veryDarkBlue: hsl(212, 21%, 14%);
+$color_neutral_darkGrayishBlue: hsl(228, 12%, 48%);
+$color_neutral_white: hsl(0, 0%, 100%);
+
+//Typography
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
+$fontAside: Montserrat;
+$fontMain: Fraunces;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    width: 1440px;
+    height: 90vh;
+    background-color: $color_primary_cream;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .product {
+        background-color: $color_neutral_white;
+        border-radius: 1rem;
+        display: flex;
+        max-width: 530px;
+        min-width: 376px;
+        margin: 1rem;
+        .productPhoto {
+            width: 50%;
+            background-image: url(./images/image-product-desktop.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+        }
+        .productDeatails {
+            max-width: 50%;
+            .productCategory{
+                text-transform: uppercase;
+                color: $color_neutral_darkGrayishBlue;
+                letter-spacing: 0.5rem;
+                font-family: $fontAside;
+                padding: 1rem;
+
+            }
+            #productName {
+                text-align: left;
+                padding: 0rem 2rem 0rem 1rem;
+                font-weight: 700;
+                font-size: 2.2rem;
+                font-family: $fontMain;
+                color: $color_neutral_veryDarkBlue;
+            }
+            .productDescription {
+                color: $color_neutral_darkGrayishBlue;
+                padding: 1rem;
+                line-height: 1.5rem;
+                font-family: $fontAside;
+            }
+            .productPrice {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 0 1rem;
+                #offerPrice {
+                    color: $color_primary_darkCyan;
+                    font-family: $fontMain;
+                    font-size: 2rem;
+                    padding-right: 1.8rem;
+                }
+                #actualPrice {
+                    color: $color_neutral_darkGrayishBlue;
+                    text-decoration: line-through;
+                    padding: 0.5rem;
+                    font-family: $fontAside;
+                    vertical-align: bottom;
+                }
+            }
+            .addToCardButton {
+                background-color: $color_primary_darkCyan;
+                border: 1px solid $color_primary_darkCyan;
+                display: flex;
+                justify-content: center;
+                border-radius: 0.5rem;
+                align-items: center;
+                margin: 1.5rem 2rem 1.5rem 1rem;
+                padding: 1rem 0.7rem;
+                transition: all 0.5s;
+                &:hover {
+                    cursor: pointer;
+                    border-radius: 0;
+                    background-color: $color_primary_veryDarkCyan;
+                }
+                &:active {
+                    background-color: $color_neutral_darkGrayishBlue;
+                }
+                p {
+                    color: $color_neutral_white;
+                    font-family: $fontAside;
+                    padding: 0 1rem;
+
+                }
+            }
+
+        }
+    }
+}
+
+//Mobile
+$mobileScreen: 375px;
+@media only screen and (max-width: $mobileScreen) {
+    .container {
+        width: $mobileScreen;
+        height: 100vh;
+        .product {
+            flex-direction: column;
+            min-width: 0;
+            margin: 0.4rem 1rem;
+            .productPhoto {
+                width: 100%;
+                height: 300px;
+                background-image: url(./images/image-product-mobile.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                border-radius: 0;
+                border-top-left-radius: 1rem;
+                border-top-right-radius: 1rem;
+            }
+            .productDeatails {
+                max-width: 100%;
+                #productName {
+                    padding: 0 3rem 0 1rem;
+                }
+            }
+        }
+    }
+}
